@@ -2,16 +2,10 @@ import { useNavigation } from '@react-navigation/core'
 import React, { useState } from 'react'
 import { StyleSheet, Text, TouchableOpacity, View,ScrollView } from 'react-native'
 import { auth } from '../firebase'
-import { firebase } from '@react-native-firebase/database';
 
-const database = firebase.app().database('https://firebse-auth-ead6e-default-rtdb.europe-west1.firebasedatabase.app/');
-
-database.ref();
 const Disputes = () => {
   const navigation = useNavigation()
-  const scores = database().ref(1).orderByValue().once('value');
   const[people, setPeople] = useState([  
-
 {key:'1',ID:'3', date:'2014-07-26	', amount:'	£50.00	', Status:'Declined'},
 {key:'2',ID:'33', date:'2014-11-07	', amount:'	£50.00	', Status:'Open'},
 {key:'3',ID:'36', date:'2014-11-20	', amount:'	£140.00	', Status:'Open'},
@@ -117,7 +111,7 @@ const Disputes = () => {
       <View style={styles.signout}></View>
       <View style={styles.signout}></View>
       <View style={styles.signout}>
-      <Text style={styles.trnx}>Disputes</Text>
+      <Text style={styles.trnx}>Transaction</Text>
       </View>
       <View style={styles.signout2}>
       <TouchableOpacity onPress={handleSignOut}>
@@ -129,13 +123,18 @@ const Disputes = () => {
         return(
           <View key={item.key}>
             <Text style={styles.item}>
-              {"ID:    "}{item.ID}
+              {"ID:    "}
+              
+              {item.ID}
               {"\n"}{"\n"}
-              {"Date: "}{item.date}
+              {"Date: "}
+              {item.date}
               {"\n"}{"\n"}
-              {"Amount: "}{item.amount}
+              {"Amount: "}
+              {item.amount}
               {"\n"}{"\n"}
-              {"Status: "}{item.Status}
+              {"Status: "}
+              {item.Status}
             </Text>
           </View>
 

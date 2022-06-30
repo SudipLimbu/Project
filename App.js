@@ -10,6 +10,7 @@ import EOD from "./screens/EOD";
 import Replenishments from "./screens/Replenishments";
 import Transactions from "./screens/Transactions";
 import Disputes from "./screens/Disputes";
+import * as firebase from 'firebase';
 
 
 const Stack = createNativeStackNavigator();
